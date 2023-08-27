@@ -10,7 +10,7 @@ from os import getenv
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_html(text="help me!")
+    await update.message.reply_html(text="جانم عزیزنم چه کمکی میخوایی ؟")
 
 async def bot_tele(text):
     # Create application
