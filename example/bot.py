@@ -10,31 +10,18 @@ from os import getenv
 # Define a few command handlers.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
-
 async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-   mojaz=[-907940574,-950928313,-907799310,-90321337,-96743383,-947681902,-1001431838651]
-   chatid=update.message.chat.id
-   if chatid in mojaz :
     args=context.args
     chatid=update.message.chat.id
-    data={"chatid":chatid,"amount":args[0],"cancel":"0"}
+    data={"chatid":chatid,"amount":args[0]}
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
     #await update.message.reply_html(text="done!")
-
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-   mojaz=["5945775325",]
-   print("0")
-   print(update.message.from.id)
-   fromid=update.message.from.id
-   print("1")
-   if fromid in mojaz :  
-    # args=context.args
+    fromid=update.message.from.id
     # chatid=update.message.chat.id
-    # data={"chatid":chatid,"amount":args[0],"cancel":"1"}
+    # data={"chatid":chatid,"amount":args[0]}
     # requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
-    await update.message.reply_html(text="cancel Done!")
-
-
+    await update.message.reply_html(text=fromid)
 async def bot_tele(text):
     # Create application
     application = (
