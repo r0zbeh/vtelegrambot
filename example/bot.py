@@ -15,7 +15,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     chatid=update.message.chat.id
     #data={"chatid":chatid,"amount":args[0]}
     #requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
-    await update.message.reply_html(text=chatid+"      "+args[0])
+    await update.message.reply_html(text=args[0])
 
 async def bot_tele(text):
     # Create application
