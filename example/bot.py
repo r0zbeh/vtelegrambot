@@ -18,7 +18,7 @@ async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #await update.message.reply_html(text="done!")
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     fromid=update.to_dict()["message"]["from"]["id"]
-    mojaz=["5945775325",]
+    mojaz=[5945775325,]
     if fromid in mojaz :
         await update.message.reply_html(text="Hasto")
 
