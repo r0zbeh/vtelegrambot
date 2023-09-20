@@ -4,15 +4,16 @@ from telegram.ext import (
     CommandHandler,
     ContextTypes,
 )
+import requests
 from os import getenv
 
 # Define a few command handlers.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    
+    res=requests.get("http://ir.asmantarh.ir:5000/variz/")
     args=context.args
-    await update.message.reply_html(text=args[0])
+    await update.message.reply_html(text=res.text)
 
 async def bot_tele(text):
     # Create application
