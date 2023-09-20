@@ -21,7 +21,7 @@ async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
   except:
      isnumber=False
   if chatid in mojaz and isnumber:  
-    data={"chatid":chatid,"amount":args[0],"cancel":"0"}
+    data={"chatid":chatid,"amount":args[0],"cancel":0}
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
     #await update.message.reply_html(text="done!")
 
@@ -38,7 +38,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         except:
             isnumber=False
         if chatid in mojaz and isnumber:  
-            data={"chatid":chatid,"amount":args[0],"cancel":"1"}
+            data={"chatid":chatid,"amount":args[0],"cancel":1}
             requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
    
 
