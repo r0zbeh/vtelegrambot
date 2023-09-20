@@ -11,16 +11,22 @@ from os import getenv
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    args=context.args
-    chatid=update.message.chat.id
+  mojaz=[-907940574,-950928313,-907799310,-90321337,-96743383,-947681902,-1001431838651]
+  chatid=update.message.chat.id
+  args=context.args
+  if chatid in mojaz :  
+   
     data={"chatid":chatid,"amount":args[0]}
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
     #await update.message.reply_html(text="done!")
+
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     fromid=update.to_dict()["message"]["from"]["id"]
     mojaz=[5945775325,]
     if fromid in mojaz :
-        await update.message.reply_html(text="Hasto")
+        args=context.args
+        test=type(args[0])
+        await update.message.reply_html(text=test)
 
     else :
          await update.message.reply_html(text="nist")
