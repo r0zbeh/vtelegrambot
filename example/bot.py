@@ -10,12 +10,12 @@ from os import getenv
 # Define a few command handlers.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
-async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
+async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     args=context.args
     chatid=update.message.chat.id
     data={"chatid":chatid,"amount":args[0]}
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
-    await update.message.reply_html(text="done!")
+    #await update.message.reply_html(text="done!")
 
 async def bot_tele(text):
     # Create application
@@ -25,7 +25,7 @@ async def bot_tele(text):
 
     # Add handlers
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("help", help))
+    application.add_handler(CommandHandler("variz", help))
 
     # Start application
     await application.bot.set_webhook(url=getenv("webhook"))
