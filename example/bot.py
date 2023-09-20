@@ -1,4 +1,5 @@
 from telegram import Update
+import requests
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -10,7 +11,12 @@ from os import getenv
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    text=update.message
+    chatid=update.message.chat.id
+    text=update.message.text.split(' ')
+    data={"chatid":chatid,"amount":text[1]}
+    requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
+    
+
     await update.message.reply_html(text=text)
 
 async def bot_tele(text):
