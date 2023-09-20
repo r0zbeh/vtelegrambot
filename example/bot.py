@@ -25,7 +25,7 @@ async def bot_tele(text):
 
     # Add handlers
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler("variz", help))
+    application.add_handler(CommandHandler("variz", variz))
 
     # Start application
     await application.bot.set_webhook(url=getenv("webhook"))
