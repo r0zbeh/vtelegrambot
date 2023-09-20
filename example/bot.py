@@ -25,8 +25,12 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     mojaz=[5945775325,]
     if fromid in mojaz :
         args=context.args
-        test=type(args[0])
-        await update.message.reply_html(text=test)
+        try:
+            args[0]=int(args[0])
+            text="is number"
+        except:
+            text="Not number"
+        await update.message.reply_html(text=text)
 
     else :
          await update.message.reply_html(text="nist")
