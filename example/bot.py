@@ -11,8 +11,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     
-    text=context.args
-    await update.message.reply_html(text=text[1])
+    args=context.args
+    await update.message.reply_html(text=args[0])
 
 async def bot_tele(text):
     # Create application
