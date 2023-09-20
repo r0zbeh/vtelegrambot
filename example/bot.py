@@ -11,10 +11,11 @@ from os import getenv
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
 async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    res=requests.get("http://ir.asmantarh.ir:5000/variz/")
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=res.text)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text="DONE")
-    await update.message.reply_html(text=res.text)
+    args=context.args
+    chatid=update.message.chat.id
+    #data={"chatid":chatid,"amount":args[0]}
+    #requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
+    await update.message.reply_html(text=chatid+"      "+args[0])
 
 async def bot_tele(text):
     # Create application
