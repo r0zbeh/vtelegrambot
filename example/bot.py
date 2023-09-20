@@ -10,35 +10,39 @@ from os import getenv
 # Define a few command handlers.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     await update.message.reply_html(text="hello world!")
+
 async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
   mojaz=[-907940574,-950928313,-907799310,-90321337,-96743383,-947681902,-1001431838651]
   chatid=update.message.chat.id
   args=context.args
-  if chatid in mojaz :  
-   
-    data={"chatid":chatid,"amount":args[0]}
+  try:
+    args[0]=int(args[0])
+    isnumber=True
+  except:
+     isnumber=False
+  if chatid in mojaz and isnumber:  
+    data={"chatid":chatid,"amount":args[0],"cancel":"0"}
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
     #await update.message.reply_html(text="done!")
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    fromid=update.to_dict()["message"]["from"]["id"]
-    mojaz=[5945775325,]
-    if fromid in mojaz :
+  fromid=update.to_dict()["message"]["from"]["id"]
+  mojazfrom=[5945775325,75397956,1365308039]
+  if fromid in mojazfrom:
+        mojaz=[-907940574,-950928313,-907799310,-90321337,-96743383,-947681902,-1001431838651]
+        chatid=update.message.chat.id
         args=context.args
         try:
             args[0]=int(args[0])
-            text="is number"
+            isnumber=True
         except:
-            text="Not number"
-        await update.message.reply_html(text=text)
-
-    else :
-         await update.message.reply_html(text="nist")
+            isnumber=False
+        if chatid in mojaz and isnumber:  
+            data={"chatid":chatid,"amount":args[0],"cancel":"1"}
+            requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
    
-    # chatid=update.message.chat.id
-    # data={"chatid":chatid,"amount":args[0]}
-    # requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
-    await update.message.reply_html(text=fromid)
+
+
 async def bot_tele(text):
     # Create application
     application = (
