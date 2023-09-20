@@ -17,7 +17,7 @@ async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
     #await update.message.reply_html(text="done!")
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    fromid=update.message._from.id
+    fromid=update.to_dict()["message"]["from"]["id"]
     # chatid=update.message.chat.id
     # data={"chatid":chatid,"amount":args[0]}
     # requests.post("http://ir.asmantarh.ir:5000/variz/",data=data,allow_redirects=False)
