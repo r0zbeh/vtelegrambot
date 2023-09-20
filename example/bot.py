@@ -22,8 +22,11 @@ async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     #await update.message.reply_html(text="done!")
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-   mojaz=[5945775325,]
+   mojaz=["5945775325",]
+   print("0")
+   print(update.message.from.id)
    fromid=update.message.from.id
+   print("1")
    if fromid in mojaz :  
     # args=context.args
     # chatid=update.message.chat.id
