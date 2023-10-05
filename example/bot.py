@@ -9,7 +9,7 @@ from os import getenv
 
 # Define a few command handlers.
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    await update.message.reply_html(text="rozbeh2 hello world!")
+    await update.message.reply_html(text="rozbeh3 hello world!")
 
 async def variz(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
   mojaz=[-907940574,-950928313,-907799310,-903213375,-967433835,-947681902,-1001431838651]
